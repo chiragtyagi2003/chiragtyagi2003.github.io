@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game Dev Hub - JIIT</title>
+
+        <style>
+            body{
+                background-color: black;
+                background-image: url('images/bg2.jfif');
+                height: 100%;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .aboutUs-container{
+                border: 10px white;
+                border-style: double;
+                margin: auto;
+                height: 600px;
+                background-image:url('images/aboutUs-bg3.jpg');
+                background-size: cover;
+            }
+
+            .aboutUs-desc{
+                padding: 25px;
+                color: white;
+                text-align:center;
+            }
+
+            .image-desc{
+                padding: 5px;
+                text-align: center;
+                color: white;
+            }
+
+            .myimage{
+                border-radius: 50%;
+                width: 100%;
+                height: 250px;
+            }
+            
+            img:hover{
+                box-shadow:  0 0 10px gainsboro;
+            }
+
+            .clearfix::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            .container2{
+                border: 5px solid white;
+                margin: 13px;
+                float: left;
+            }
+
+            .volunteer-desc-heading{
+                padding: 25px;
+                text-align: center;
+                color: white;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 20px;
+            }
+
+            .volunteer-desc{
+                padding: 10px;
+                text-align: left;
+                color: white;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+
+            img{
+                vertical-align: middle;
+            }
+
+            .slideimage{
+                border-radius: 20px;
+                height: 500px;
+                width: 100%;
+            }
+            
+            /* for every particular slide */
+            .myslides{
+                /* don't display it by default */
+                display: none;
+            }
+
+            /* slide container */
+           .slide-container{
+               /* the width of the slides */
+               max-width: 800px;
+               
+               /* enabling the position of slides to change according to the screen size */
+               position: relative;
+
+               /* set the margins automatically */
+               margin: auto;
+
+            }
+
+            /*indicators or dots */
+            .dot{
+                height: 15px;
+                width: 15px;
+                /* margin btw dots */
+                margin: 0 2px;
+                background-color: grey;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            /*change the color of dot when a slide is shown */
+            .active{
+                background-color: white;
+            }
+
+
+            .gallery
+            {   
+                
+                margin: 25px;
+                float: left;
+                opacity: 1;
+                transition: transform .2s;
+            }
+
+            .desc{
+                padding: 5px;
+                text-align: left;
+                color: white;
+                background-color:blueviolet;
+                display: none;
+                height: 2px;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                
+                
+            }
+
+            .myimage{
+                border-radius:50%;
+                width: 275px;
+                height: 275px;
+                
+                
+
+            }
+            
+
+            .gallery:hover{
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+
+           
+            p{
+                margin-top:-15px;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            
+            .view{
+                width:100%;
+                height: 200px;
+                background-color: aquamarine;
+            }
+            h1{
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 50px;
+            }
+
+            h3{
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+        </style>
+
+        <script>
+            function changeImage(img_id){
+            switch (img_id){
+                case 'head':
+                    document.getElementById(img_id).src = "overlays/head-bg.png";
+                    break;
+                
+                case 'vicehead':
+                    document.getElementById(img_id).src = "overlays/vicehead-bg.jfif";
+                    break;
+
+                case 'strategyhead': 
+                        document.getElementById(img_id).src = "overlays/strategyhead-bg.jfif";
+                        break;
+
+                case 'techhead': 
+                        document.getElementById(img_id).src = "overlays/techhead-bg.jfif";
+                        break;
+                
+                case 'treasurer':
+                    document.getElementById(img_id).src = "overlays/treasurer-bg.png";
+                    break;
+
+                case 'vicetechhead1':
+                    document.getElementById(img_id).src = "overlays/vicetechhead1-bg.jfif";
+                    break;
+
+                case 'vicetechhead2':
+                    document.getElementById(img_id).src = "overlays/vicetechhead2-bg.jfif";
+                    break;
+
+                case 'managementhead1':
+                    document.getElementById(img_id).src = "overlays/managementhead1-bg.jfif";
+                    break;
+
+                case 'managementhead2':
+                    document.getElementById(img_id).src = "overlays/managementhead2-bg.jfif";
+                    break;
+
+                case 'marketinghead': 
+                    document.getElementById(img_id).src = "overlays/marketinghead-bg.jfif";
+                    break;
+
+                case 'prhead': 
+                    document.getElementById(img_id).src = "overlays/prhead-bg.jfif";
+                    break;
+
+                case 'digitalhead': 
+                    document.getElementById(img_id).src = "overlays/digitalhead-bg.jfif";
+                    break;
+            
+                case 'creativehead':
+                    document.getElementById(img_id).src = "overlays/creativehead-bg.png";
+                    break;
+            }
+            }
+
+            function changeBack(img_id){
+            switch(img_id){
+                case 'head':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'vicehead':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+                
+                case 'techhead':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+                    
+                case 'managementhead1':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'managementhead2':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'treasurer':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'vicetechhead1':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'vicetechhead2':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'prhead':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'digitalhead':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+                
+                case 'creativehead':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'marketinghead':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+
+                case 'strategyhead':
+                    document.getElementById(img_id).src = "images/sample.jpg";
+                    break;
+            }
+            }
+        </script>
+
+
+    </head>
+
+    <body>
+
+        <!--division for about US-->
+      
+        <br><br><br>
+        <div class="aboutUs-container">
+            <div class="aboutUs-desc">
+                <h1>ABOUT US</h1>
+                <br><br>
+                <h3>Learn with us the ultimate art and science of designing,developing and deploying your very own video games.</h3>
+                <br>
+                <h3>Experience the world of gaming from developer's the side.</h3>
+            </div>
+        </div>
+
+        <!--division for events-->
+        <br><br><br><br>
+        <h1 style="color: white; text-align: center;">EVENTS</h1>
+        <br><br><br>
+        
+        <div class="slide-container">
+            <div class="myslides">
+                <img src="images/blenderCompetiton2022.PNG" alt="blenderCompetition2022" class="slideimage">
+            </div>
+
+            <div class="myslides">
+                <img src="images/blenderWorskhop2022.PNG" alt="blenderWorskhop2022" class="slideimage">
+            </div>
+
+            <div class="myslides">
+                <img src="images/hackinSummer2022.PNG" alt="hackinSummer2022" class="slideimage">
+            </div>
+
+            <div class="myslides">
+                <img src="images/unity2022.PNG" alt="unity2022" class="slideimage">
+            </div>
+
+            <div class="myslides">
+                <img src="images/engineWorkshop2022.PNG" alt="engineWorkshop2022" class="slideimage">
+            </div>
+
+            <div class="myslides">
+                <img src="images/valorant2021.PNG" alt="valorant2021" class="slideimage">
+            </div>
+
+            <div class="myslides">
+                <img src="images/secondStrike2021.PNG" alt="secondStrike2021" class="slideimage">
+            </div>
+
+        </div>
+
+        <br>
+        <div style="text-align:center;">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <!-- script for automatic slideshow-->
+        <script>
+
+            let slideindex = 0;
+            showSlides();
+
+            function showSlides(){
+                let i;
+                
+                //collect all slides
+                let slides = document.getElementsByClassName("myslides")
+                
+                //collect all the dots
+                let dots = document.getElementsByClassName("dot")
+
+                //make all slides display none
+                for(i=0;i<slides.length;i++){
+                    slides[i].style.display = "none";
+                }
+
+                //increase slideindex
+                slideindex ++;
+
+                //if slideindex reaches past last slide
+                if(slideindex > slides.length){
+                    slideindex = 1;
+                }
+                
+                //change all dots from active to deactive
+                for(i=0;i<dots.length;i++){
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+
+                //show the slide.
+                slides[slideindex - 1].style.display = "block";
+
+                //change the dot color to show the current slide is active
+                dots[slideindex-1].className += " active";
+
+                //this changes the slide every two seconds
+                setTimeout(showSlides, 2000);
+
+            }
+        </script>
+                
+        <!--core team division-->
+        <br><br><br>
+        <h1 style="color:white; text-align: center;">CORE TEAM</h1>
+        
+        <div class="clearfix">
+            
+            <div class="gallery" style="margin-left:250px;">
+                <img src="images/sample.jpg" alt="Head" id="head" class="myimage" onmouseover="changeImage('head')" onmouseout="changeBack('head')"> 
+            </div>
+
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="viceHead" id="vicehead" class="myimage" onmouseover="changeImage('vicehead')" onmouseout="changeBack('vicehead')">
+            </div>
+
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="StrategyHead" class="myimage" id="strategyhead" onmouseover="changeImage('strategyhead')" onmouseout="changeBack('strategyhead')">
+            </div>
+            
+            <div class="gallery" style="margin-left:250px;">
+                <img src="images/sample.jpg" alt="techHead" class="myimage" id="techhead" onmouseover="changeImage('techhead')" onmouseout="changeBack('techhead')">
+            </div>
+
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="Treasurer" class="myimage" id="treasurer" onmouseover="changeImage('treasurer')" onmouseout="changeBack('treasurer')">
+            </div>
+            
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="managementHead1" class="myimage" id="managementhead1" onmouseover="changeImage('managementhead1')" onmouseout="changeBack('managementhead1')">
+            </div>
+
+            
+            <div class="gallery" style="margin-left:250px;">
+                <img src="images/sample.jpg" alt="viceTechHead1" class="myimage" id="vicetechhead1" onmouseover="changeImage('vicetechhead1')" onmouseout="changeBack('vicetechhead1')">
+            </div>
+            
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="managementHead2" class="myimage" id="managementhead2" onmouseover="changeImage('managementhead2')" onmouseout="changeBack('managementhead2')">
+            </div>
+
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="viceTechHead2" class="myimage" id="vicetechhead2" onmouseover="changeImage('vicetechhead2')" onmouseout="changeBack('vicetechhead2')">
+            </div>
+
+            <div class="gallery" style="margin-left:75px;">
+                <img src="images/sample.jpg" alt="creativeHead" class="myimage" id="creativehead" onmouseover="changeImage('creativehead')" onmouseout="changeBack('creativehead')">
+            </div>
+
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="digitalHead" class="myimage" id="digitalhead" onmouseover="changeImage('digitalhead')" onmouseout="changeBack('digitalhead')">
+            </div>
+
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="prHead" class="myimage" id="prhead" onmouseover="changeImage('prhead')" onmouseout="changeBack('prhead')">
+            </div>
+
+            <div class="gallery">
+                <img src="images/sample.jpg" alt="marketingHead" class="myimage" id="marketinghead" onmouseover="changeImage('marketinghead')" onmouseout="changeBack('marketinghead')">
+            </div>
+
+        </div>
+        
+        
+        <!--division for volunteer team-->
+       
+
+        <div class="clearfix">
+            <h1 style="color:white; text-align: center;">TEAM 2022-2023</h1>
+            
+
+            <div class="container2">
+                <div class="volunteer-desc-heading">
+                    <h2>Technical Team</h2>
+                </div>
+                <div class="volunteer-desc">
+                    <h3>Samay Thusoo</h3>
+                    <h3>Aranya Maji</h3>
+                    <h3>Harsh Pratap Singh</h3>
+                    <h3>Priyanshu Jain</h3>
+                    <h3>Arnav Gautam</h3>
+                </div>
+            </div>
+    
+            <div class="container2">
+                <div class="volunteer-desc-heading">
+                    <h2>Management Team</h2>
+                </div>
+                <div class="volunteer-desc">
+                    <h3>Pooja Sharma</h3>
+                    <h3>Aditya Lohia</h3>
+                    <h3>Anshuman Singh</h3>
+                    <h3>Pankaj Kushwaha</h3>
+                    <h3>Shahrukh</h3>
+                </div>
+            </div>
+            
+            <div class="container2">
+                <div class="volunteer-desc-heading">
+                    <h2>Digital Team</h2>
+                </div>
+                <div class="volunteer-desc">
+                    <h3>Shreya Chauhan</h3>
+                    <h3>Rhythm Gubrani</h3>
+                    <h3>Chirag Gupta</h3>
+                    <h3>Hardik Dharmani</h3>
+                    <br><br>
+                </div>
+            </div>
+    
+            <div class="container2">
+                <div class="volunteer-desc-heading">
+                    <h2>Creative Team</h2>
+                </div>
+                <div class="volunteer-desc">
+                    <h3>Chirag Tyagi</h3>
+                    <h3>Aryan Sharma</h3>
+                    <h3>Aviral Soni</h3>
+                    <h3>Vishrut Vardhan</h3>
+                    <br><br>
+                </div>
+            </div>
+    
+    
+            <div class="container2">
+                <div class="volunteer-desc-heading">
+                    <h2>Marketing Team</h2>
+                </div>
+                <div class="volunteer-desc">
+                    <h3>Manya</h3>
+                    <h3>Sanchit Narang</h3>
+                    <h3>Aman Upadhyay</h3>
+                    <h3>Ayush Srivastava </h3>
+                    <br><br>
+                </div>
+            </div>
+
+        </div>
+
+
+        <br><br><br>
+        <div class="view">
+        
+        </div>
+        
+
+
+    </body>
+</html>
